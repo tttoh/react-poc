@@ -1,1 +1,3 @@
-export { DebounceButton } from './DebounceButton';
+import DebounceButton from './DebounceButton';
+
+export default { DebounceButton };

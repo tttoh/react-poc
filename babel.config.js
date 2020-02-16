@@ -1,34 +1,31 @@
-module.exports = {
-    presets: [
-        [
-            "@babel/preset-env", {
-                targets: {
-                    node: "current"
-                }
-            }
-        ],
-        [
-            "@babel/preset-react", {
-                development: process.env.BABEL_ENV === "development",
-            }
-        ]
+const presets = [
+    [
+        '@babel/preset-env',
+        {
+            debug: true,
+        },
     ],
-    plugins: [
-        [
-            "module-resolver",
-            {
-                root: ["./src"],
-                alias: {
-                    "@utils": "./src/components/utils",
-                    "@components": "./src/components",
-                    "@theme": "./src/themes",
-                    "@images": "./src/images",
-                    "@routes": "./src/routes",
-                    "@sharedComponents": "./src/sharedComponent",
-                    "@screens": "./src/screens"
-                },
-                cwd: "packagejson"
-            }
-        ]
+    '@babel/preset-react',
+];
+
+const plugins = [
+    [
+        'module-resolver',
+        {
+            root: ['./src'],
+            extensions: ['.ios.js', '.android.js', '.js', '.json'],
+            alias: {
+                utils: './components/utils',
+                components: './components',
+                theme: './themes',
+                images: './images',
+                routes: './routes',
+                sharedComponents: './sharedComponent',
+                screens: './screens',
+            },
+            cwd: 'packagejson',
+        },
     ],
-};
+];
+
+module.exports = { presets, plugins };
